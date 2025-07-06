@@ -378,38 +378,25 @@ class BarCountApp {
         } else {
             emptyMessage.style.display = 'none';
             
-            // Mise à jour progressive sans réinitialiser tout le contenu
-            const existingItems = container.querySelectorAll('.todo-item');
-            const existingIds = Array.from(existingItems).map(item => item.getAttribute('data-todo-id'));
+            // Rendu complet pour éviter les problèmes de synchronisation
+            container.innerHTML = '';
             
-            // Supprimer les éléments qui ne sont plus dans la liste
-            existingItems.forEach(item => {
-                const id = item.getAttribute('data-todo-id');
-                if (!this.todoList.find(todo => todo.id === id)) {
-                    item.remove();
-                }
-            });
-            
-            // Ajouter les nouveaux éléments
             this.todoList.forEach((todo, index) => {
-                if (!existingIds.includes(todo.id)) {
-                    const item = document.createElement('div');
-                    item.className = 'todo-item';
-                    item.setAttribute('data-todo-id', todo.id);
-                    // Pas d'animation délai pour éviter les effets de disparition/réapparition
-                    
-                    item.innerHTML = `
-                        <div class="todo-content">
-                            <div class="todo-text">${todo.name}</div>
-                            <div class="todo-quantity">${todo.quantity}</div>
-                        </div>
-                        <button type="button" class="todo-done-btn" data-todo="${todo.id}">
-                            ✓ Remonté
-                        </button>
-                    `;
-                    
-                    container.appendChild(item);
-                }
+                const item = document.createElement('div');
+                item.className = 'todo-item';
+                item.setAttribute('data-todo-id', todo.id);
+                
+                item.innerHTML = `
+                    <div class="todo-content">
+                        <div class="todo-text">${todo.name}</div>
+                        <div class="todo-quantity">${todo.quantity}</div>
+                    </div>
+                    <button type="button" class="todo-done-btn" data-todo="${todo.id}">
+                        ✓ Remonté
+                    </button>
+                `;
+                
+                container.appendChild(item);
             });
         }
     }
