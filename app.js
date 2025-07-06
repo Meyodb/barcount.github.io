@@ -184,6 +184,24 @@ class BarCountApp {
                 }
                 return false;
             }
+
+            // Boutons de réorganisation
+            if (e.target.classList.contains('reorder-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const todoId = e.target.dataset.todo;
+                const productId = e.target.dataset.product;
+                const direction = e.target.dataset.direction;
+                
+                if (todoId && direction) {
+                    this.reorderTodo(todoId, direction);
+                    this.addRippleEffect(e.target, e);
+                } else if (productId && direction) {
+                    this.reorderProduct(productId, direction);
+                    this.addRippleEffect(e.target, e);
+                }
+                return false;
+            }
         });
         
         // Événements de survol avec animations
@@ -400,6 +418,14 @@ class BarCountApp {
                         <div class="product-count">${product.count}</div>
                     </div>
                 </div>
+                <div class="reorder-buttons">
+                    <button type="button" class="reorder-btn" data-product="${product.id}" data-direction="up" ${index === 0 ? 'disabled' : ''}>
+                        ↑
+                    </button>
+                    <button type="button" class="reorder-btn" data-product="${product.id}" data-direction="down" ${index === this.products.length - 1 ? 'disabled' : ''}>
+                        ↓
+                    </button>
+                </div>
                 <div class="button-group">
                     <button type="button" class="btn-minus" data-product="${product.id}">−</button>
                     <button type="button" class="btn-plus" data-product="${product.id}">+</button>
@@ -437,6 +463,14 @@ class BarCountApp {
                     <div class="todo-content">
                         <div class="todo-text">${todo.name}</div>
                         <div class="todo-quantity">${todo.quantity}</div>
+                    </div>
+                    <div class="reorder-buttons">
+                        <button type="button" class="reorder-btn" data-todo="${todo.id}" data-direction="up" ${index === 0 ? 'disabled' : ''}>
+                            ↑
+                        </button>
+                        <button type="button" class="reorder-btn" data-todo="${todo.id}" data-direction="down" ${index === this.todoList.length - 1 ? 'disabled' : ''}>
+                            ↓
+                        </button>
                     </div>
                     <button type="button" class="todo-done-btn" data-todo="${todo.id}">
                         ✓ Remonté
@@ -551,6 +585,79 @@ class BarCountApp {
             
             container.appendChild(item);
         });
+    }
+
+    reorderTodo(todoId, direction) {
+        const currentIndex = this.todoList.findIndex(todo => todo.id === todoId);
+        if (currentIndex === -1) return;
+        
+        let newIndex;
+        if (direction === 'up' && currentIndex > 0) {
+            newIndex = currentIndex - 1;
+        } else if (direction === 'down' && currentIndex < this.todoList.length - 1) {
+            newIndex = currentIndex + 1;
+        } else {
+            return; // Pas de changement possible
+        }
+        
+        // Échanger les éléments
+        const todoItem = this.todoList[currentIndex];
+        this.todoList[currentIndex] = this.todoList[newIndex];
+        this.todoList[newIndex] = todoItem;
+        
+        // Mettre à jour l'affichage
+        this.saveData();
+        this.renderTodoList();
+        
+        // Animation de feedback
+        setTimeout(() => {
+            const movedElement = document.querySelector(`[data-todo-id="${todoId}"]`);
+            if (movedElement) {
+                movedElement.style.transform = 'scale(1.05)';
+                movedElement.style.boxShadow = '0 8px 25px rgba(0, 212, 170, 0.4)';
+                setTimeout(() => {
+                    movedElement.style.transform = '';
+                    movedElement.style.boxShadow = '';
+                }, 300);
+            }
+        }, 50);
+    }
+
+    reorderProduct(productId, direction) {
+        const currentIndex = this.products.findIndex(product => product.id === productId);
+        if (currentIndex === -1) return;
+        
+        let newIndex;
+        if (direction === 'up' && currentIndex > 0) {
+            newIndex = currentIndex - 1;
+        } else if (direction === 'down' && currentIndex < this.products.length - 1) {
+            newIndex = currentIndex + 1;
+        } else {
+            return; // Pas de changement possible
+        }
+        
+        // Échanger les éléments
+        const productItem = this.products[currentIndex];
+        this.products[currentIndex] = this.products[newIndex];
+        this.products[newIndex] = productItem;
+        
+        // Mettre à jour l'affichage
+        this.updateTodoList();
+        this.saveData();
+        this.render();
+        
+        // Animation de feedback
+        setTimeout(() => {
+            const movedElement = document.querySelector(`[data-product-id="${productId}"]`);
+            if (movedElement) {
+                movedElement.style.transform = 'scale(1.05)';
+                movedElement.style.boxShadow = '0 8px 25px rgba(255, 167, 38, 0.4)';
+                setTimeout(() => {
+                    movedElement.style.transform = '';
+                    movedElement.style.boxShadow = '';
+                }, 300);
+            }
+        }, 50);
     }
     
     saveData() {
