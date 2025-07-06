@@ -16,7 +16,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>BarCount</h1>
+            <div class="header-top">
+                <button type="button" class="settings-btn" data-screen="settings">
+                    ⚙️ Settings
+                </button>
+                <h1>BarCount</h1>
+                <div class="spacer"></div>
+            </div>
             <nav class="nav-buttons">
                 <button type="button" class="nav-btn active" data-screen="inventory">
                     📦 Inventaire
@@ -51,6 +57,34 @@
                 <div class="empty-message" id="empty-message">
                     <p>🎉 Rien à remonter pour le moment !</p>
                     <small>Les bouteilles manquantes apparaîtront ici</small>
+                </div>
+            </div>
+
+            <!-- Écran Settings -->
+            <div id="settings" class="screen">
+                <div class="settings-header">
+                    <h2>⚙️ Paramètres</h2>
+                    <button type="button" class="back-btn" data-screen="inventory">
+                        ← Retour
+                    </button>
+                </div>
+
+                <div class="settings-content">
+                    <div class="add-product-section">
+                        <h3>➕ Ajouter un Alcool</h3>
+                        <form class="add-product-form">
+                            <input type="text" id="product-name" placeholder="Nom de l'alcool" required>
+                            <input type="url" id="product-image" placeholder="URL de l'image (optionnel)">
+                            <button type="submit" class="add-btn">Ajouter</button>
+                        </form>
+                    </div>
+
+                    <div class="manage-products-section">
+                        <h3>🗑️ Gérer les Alcools</h3>
+                        <div class="products-manager" id="products-manager">
+                            <!-- Les produits seront générés dynamiquement -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

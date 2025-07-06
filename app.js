@@ -100,6 +100,32 @@ class BarCountApp {
                 return false;
             });
         });
+
+        // Bouton Settings
+        document.querySelector('.settings-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.switchScreen('settings');
+            this.addRippleEffect(e.target, e);
+            return false;
+        });
+
+        // Bouton Retour
+        document.querySelector('.back-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.switchScreen(e.target.dataset.screen);
+            this.addRippleEffect(e.target, e);
+            return false;
+        });
+
+        // Formulaire d'ajout de produit
+        document.querySelector('.add-product-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.addProduct();
+            return false;
+        });
         
         // Délégation d'événements pour tous les boutons
         document.addEventListener('click', (e) => {
@@ -142,6 +168,18 @@ class BarCountApp {
                 const todoId = e.target.dataset.todo;
                 if (todoId) {
                     this.markTodoComplete(todoId);
+                    this.addRippleEffect(e.target, e);
+                }
+                return false;
+            }
+
+            // Boutons de suppression de produit
+            if (e.target.classList.contains('delete-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                const productId = e.target.dataset.product;
+                if (productId && confirm('Êtes-vous sûr de vouloir supprimer cet alcool ?')) {
+                    this.deleteProduct(productId);
                     this.addRippleEffect(e.target, e);
                 }
                 return false;
@@ -227,6 +265,11 @@ class BarCountApp {
             // FORCER la mise à jour des données lors du changement d'écran
             this.updateTodoList();
             this.render();
+            
+            // Mise à jour spécifique pour l'écran Settings
+            if (screen === 'settings') {
+                this.renderProductsManager();
+            }
             
             // Animation d'entrée séquentielle avec délai
             setTimeout(() => {
@@ -415,6 +458,98 @@ class BarCountApp {
                     element.classList.remove('needs-restock');
                 }
             }
+        });
+    }
+
+    addProduct() {
+        const nameInput = document.getElementById('product-name');
+        const imageInput = document.getElementById('product-image');
+        
+        const name = nameInput.value.trim();
+        const image = imageInput.value.trim() || 'images/default.svg';
+        
+        if (!name) {
+            alert('Veuillez entrer un nom pour l\'alcool');
+            return;
+        }
+        
+        // Vérifier si le produit existe déjà
+        if (this.products.some(p => p.name.toLowerCase() === name.toLowerCase())) {
+            alert('Cet alcool existe déjà dans la liste');
+            return;
+        }
+        
+        // Créer un nouvel ID unique
+        const newId = `product-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+        
+        // Ajouter le nouveau produit
+        const newProduct = {
+            id: newId,
+            name: name,
+            image: image,
+            count: 0
+        };
+        
+        this.products.push(newProduct);
+        
+        // Mettre à jour l'affichage
+        this.updateTodoList();
+        this.saveData();
+        this.render();
+        this.renderProductsManager();
+        
+        // Vider le formulaire
+        nameInput.value = '';
+        imageInput.value = '';
+        
+        // Feedback visuel
+        const addBtn = document.querySelector('.add-btn');
+        addBtn.textContent = '✓ Ajouté !';
+        addBtn.style.background = 'var(--success-color)';
+        
+        setTimeout(() => {
+            addBtn.textContent = 'Ajouter';
+            addBtn.style.background = 'linear-gradient(135deg, var(--success-color), var(--warning-color))';
+        }, 1500);
+    }
+
+    deleteProduct(productId) {
+        // Supprimer le produit de la liste
+        this.products = this.products.filter(p => p.id !== productId);
+        
+        // Mettre à jour l'affichage
+        this.updateTodoList();
+        this.saveData();
+        this.render();
+        this.renderProductsManager();
+    }
+
+    renderProductsManager() {
+        const container = document.getElementById('products-manager');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        if (this.products.length === 0) {
+            container.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 20px;">Aucun alcool dans la liste</p>';
+            return;
+        }
+        
+        this.products.forEach(product => {
+            const item = document.createElement('div');
+            item.className = 'manager-item';
+            
+            item.innerHTML = `
+                <div class="manager-item-info">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='images/default.svg'">
+                    <div class="manager-item-name">${product.name}</div>
+                </div>
+                <button type="button" class="delete-btn" data-product="${product.id}">
+                    🗑️ Supprimer
+                </button>
+            `;
+            
+            container.appendChild(item);
         });
     }
     
