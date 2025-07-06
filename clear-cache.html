@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧹 Clear Cache - BarCount</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: white;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            color: #333;
+            max-width: 400px;
+        }
+        .btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Clear Cache BarCount</h1>
+        <p>Vider toutes les données et le cache de l'application</p>
+        
+        <button class="btn" onclick="clearAll()">🗑️ Vider Tout</button>
+        <button class="btn" onclick="clearData()">📊 Vider Données</button>
+        <button class="btn" onclick="clearCache()">💾 Vider Cache</button>
+        
+        <div id="status"></div>
+        
+        <hr style="margin: 30px 0;">
+        <a href="index.html" class="btn" style="background: #2ecc71; text-decoration: none; display: inline-block;">
+            🍺 Retour à BarCount
+        </a>
+    </div>
+
+    <script>
+        const status = document.getElementById('status');
+        
+        function showStatus(message, type = 'success') {
+            status.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+        
+        async function clearAll() {
+            await clearData();
+            await clearCache();
+            showStatus('✅ Tout a été vidé ! Cache + Données + Service Worker');
+        }
+        
+        async function clearData() {
+            try {
+                // Vider localStorage
+                localStorage.removeItem('barcount-data');
+                showStatus('✅ Données de l\'inventaire vidées');
+            } catch (error) {
+                showStatus('❌ Erreur lors du vidage des données', 'info');
+            }
+        }
+        
+        async function clearCache() {
+            try {
+                // Vider le cache du Service Worker
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                    }
+                }
+                
+                // Vider les caches
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(
+                        cacheNames.map(cacheName => caches.delete(cacheName))
+                    );
+                }
+                
+                showStatus('✅ Cache et Service Worker vidés');
+            } catch (error) {
+                showStatus('❌ Erreur lors du vidage du cache', 'info');
+            }
+        }
+        
+        // Auto-clear au chargement de la page
+        window.addEventListener('load', () => {
+            showStatus('🔄 Page de nettoyage chargée', 'info');
+        });
+    </script>
+</body>
+</html>

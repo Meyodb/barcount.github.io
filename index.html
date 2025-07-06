@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarCount</title>
+    <meta name="description" content="Application épurée de gestion d'inventaire pour bar">
+    <meta name="theme-color" content="#1a1a2e">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BarCount">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BarCount</h1>
+            <nav class="nav-buttons">
+                <button type="button" class="nav-btn active" data-screen="inventory">
+                    📦 Inventaire
+                </button>
+                <button type="button" class="nav-btn" data-screen="restock">
+                    📋 À Remonter
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Écran Inventaire -->
+            <div id="inventory" class="screen active">
+                <div class="product-list" id="inventory-list">
+                    <!-- Les produits seront générés dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Écran À Remonter -->
+            <div id="restock" class="screen">
+                <div class="todo-header">
+                    <h2>À Remonter</h2>
+                    <button type="button" class="clear-btn">
+                        🗑️ Tout Effacer
+                    </button>
+                </div>
+                
+                <div class="todo-list" id="todo-list">
+                    <!-- Les éléments à remonter seront générés dynamiquement -->
+                </div>
+                
+                <div class="empty-message" id="empty-message">
+                    <p>🎉 Rien à remonter pour le moment !</p>
+                    <small>Les bouteilles manquantes apparaîtront ici</small>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
