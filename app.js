@@ -287,17 +287,23 @@ class BarCountApp {
     
     updateTodoList() {
         this.todoList = this.products
-            .filter(product => product.count === 0)
+            .filter(product => product.count > 0)
             .map(product => ({
                 id: product.id,
                 name: product.name,
-                quantity: 1
+                quantity: product.count
             }));
     }
     
     markTodoComplete(todoId) {
-        // Supprimer l'élément de la liste todo
-        this.todoList = this.todoList.filter(todo => todo.id !== todoId);
+        // Remettre le compteur du produit à 0 (bouteilles remontées)
+        const product = this.products.find(p => p.id === todoId);
+        if (product) {
+            product.count = 0;
+        }
+        
+        // Mettre à jour la liste des todos
+        this.updateTodoList();
         
         // Sauvegarder et re-rendre sans animation
         this.saveData();
@@ -335,7 +341,7 @@ class BarCountApp {
         
         this.products.forEach((product, index) => {
             const item = document.createElement('div');
-            item.className = `product-item ${product.count === 0 ? 'needs-restock' : ''}`;
+            item.className = `product-item ${product.count > 0 ? 'needs-restock' : ''}`;
             item.setAttribute('data-product-id', product.id);
             // Pas d'animation délai pour un rendu plus stable
             
@@ -412,7 +418,7 @@ class BarCountApp {
         this.products.forEach(product => {
             const element = document.querySelector(`[data-product-id="${product.id}"]`);
             if (element) {
-                if (product.count === 0) {
+                if (product.count > 0) {
                     element.classList.add('needs-restock');
                 } else {
                     element.classList.remove('needs-restock');
