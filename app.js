@@ -224,6 +224,10 @@ class BarCountApp {
             newScreen.classList.add('active');
             this.currentScreen = screen;
             
+            // FORCER la mise à jour des données lors du changement d'écran
+            this.updateTodoList();
+            this.render();
+            
             // Animation d'entrée séquentielle avec délai
             setTimeout(() => {
                 this.sequentialEntryAnimation();
