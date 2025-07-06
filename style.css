@@ -278,13 +278,13 @@ h1 {
 }
 
 .product-count {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
-    padding: 6px 14px;
+    padding: 8px 16px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     border-radius: 20px;
     display: inline-block;
-    min-width: 45px;
+    min-width: 50px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--success-color);
@@ -292,9 +292,13 @@ h1 {
 }
 
 .needs-restock .product-count {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 16px;
     background: linear-gradient(135deg, rgba(255, 107, 122, 0.2), rgba(255, 107, 122, 0.1));
     color: var(--danger-color);
     border-color: rgba(255, 107, 122, 0.3);
+    min-width: 50px;
     animation: pulse 2s ease-in-out infinite;
 }
 

@@ -2,15 +2,15 @@
 class BarCountApp {
     constructor() {
         this.products = [
-            { id: 'absolut', name: 'Absolut', count: 5, image: 'images/absolut.svg' },
-            { id: 'beefeater', name: 'Beefeater', count: 4, image: 'images/beefeater.svg' },
-            { id: 'jameson', name: 'Jameson', count: 3, image: 'images/jameson.svg' },
-            { id: 'eljimador', name: 'El Jimador', count: 3, image: 'images/eljimador.svg' },
-            { id: 'bacardi', name: 'Bacardi Carta Blanca', count: 3, image: 'images/bacardi.svg' },
-            { id: 'jackdaniels', name: 'Jack Daniel\'s', count: 2, image: 'images/jackdaniels.svg' },
-            { id: 'bacardiouro', name: 'Bacardi Oro', count: 1, image: 'images/bacardi.svg' },
-            { id: 'triplesec', name: 'Triple Sec', count: 1, image: 'images/triplesec.svg' },
-            { id: 'cremepeche', name: 'Crème de Pêche', count: 1, image: 'images/cremepeche.svg' }
+            { id: 'absolut', name: 'Absolut', count: 0, image: 'images/absolut.svg' },
+            { id: 'beefeater', name: 'Beefeater', count: 0, image: 'images/beefeater.svg' },
+            { id: 'jameson', name: 'Jameson', count: 0, image: 'images/jameson.svg' },
+            { id: 'eljimador', name: 'El Jimador', count: 0, image: 'images/eljimador.svg' },
+            { id: 'bacardi', name: 'Bacardi Carta Blanca', count: 0, image: 'images/bacardi.svg' },
+            { id: 'jackdaniels', name: 'Jack Daniel\'s', count: 0, image: 'images/jackdaniels.svg' },
+            { id: 'bacardiouro', name: 'Bacardi Oro', count: 0, image: 'images/bacardi.svg' },
+            { id: 'triplesec', name: 'Triple Sec', count: 0, image: 'images/triplesec.svg' },
+            { id: 'cremepeche', name: 'Crème de Pêche', count: 0, image: 'images/cremepeche.svg' }
         ];
         
         this.currentScreen = 'inventory';
