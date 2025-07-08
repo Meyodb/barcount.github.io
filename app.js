@@ -35,7 +35,10 @@ class BarCountApp {
             { id: 'camparimilan', name: 'Campari milano', count: 0 },
             { id: 'parati', name: 'Parati', count: 0 },
             { id: 'lesgalets', name: 'Les galets', count: 0 },
-            { id: 'jusfruit', name: 'jus de pomme orange ananas et cranberry', count: 0 }
+            { id: 'jusorange', name: 'Jus d\'orange', count: 0 },
+            { id: 'juspomme', name: 'Jus de pomme', count: 0 },
+            { id: 'jusananas', name: 'Jus d\'ananas', count: 0 },
+            { id: 'juscranberry', name: 'Jus de cranberry', count: 0 }
         ];
         
         this.currentScreen = 'inventory';
