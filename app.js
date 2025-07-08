@@ -460,10 +460,8 @@ class BarCountApp {
                 item.setAttribute('data-todo-id', todo.id);
                 
                 item.innerHTML = `
-                    <div class="todo-content">
-                        <div class="todo-text">${todo.name}</div>
-                        <div class="todo-quantity">${todo.quantity}</div>
-                    </div>
+                    <div class="todo-text">${todo.name}</div>
+                    <div class="todo-quantity">${todo.quantity}</div>
                     <button type="button" class="todo-done-btn" data-todo="${todo.id}">
                         ✓ Remonté
                     </button>
