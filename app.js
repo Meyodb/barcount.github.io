@@ -62,12 +62,12 @@ class BarCountApp {
             { id: 'camparimilan', name: 'Campari milano', count: 0, category: 'comptoire' },
             { id: 'parati', name: 'Parati', count: 0, category: 'comptoire' },
             { id: 'lesgalets', name: 'Les galets', count: 0, category: 'comptoire' },
-            { id: 'jusorange', name: 'Jus d\'orange', count: 0, category: 'comptoire' },
-            { id: 'juspomme', name: 'Jus de pomme', count: 0, category: 'comptoire' },
-            { id: 'jusananas', name: 'Jus d\'ananas', count: 0, category: 'comptoire' },
-            { id: 'juscranberry', name: 'Jus de cranberry', count: 0, category: 'comptoire' },
             
             // CAISSE
+            { id: 'jusorange', name: 'Jus d\'orange', count: 0, category: 'caisse' },
+            { id: 'juspomme', name: 'Jus de pomme', count: 0, category: 'caisse' },
+            { id: 'jusananas', name: 'Jus d\'ananas', count: 0, category: 'caisse' },
+            { id: 'juscranberry', name: 'Jus de cranberry', count: 0, category: 'caisse' },
             { id: 'absolut', name: 'Absolut', count: 0, category: 'caisse' },
             { id: 'beefeater', name: 'Beefeater', count: 0, category: 'caisse' },
             { id: 'jameson', name: 'Jameson', count: 0, category: 'caisse' },
