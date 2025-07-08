@@ -329,24 +329,7 @@ h1 {
 .product-info {
     display: flex;
     align-items: center;
-    gap: 18px;
     flex: 1;
-}
-
-.product-image {
-    width: 55px;
-    height: 55px;
-    object-fit: contain;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.product-image:hover {
-    transform: rotate(5deg) scale(1.1);
-    background: rgba(255, 255, 255, 0.15);
 }
 
 .product-details {
@@ -838,14 +821,6 @@ h1 {
 .manager-item-info {
     display: flex;
     align-items: center;
-    gap: 12px;
-}
-
-.manager-item-info img {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    object-fit: cover;
 }
 
 .manager-item-name {

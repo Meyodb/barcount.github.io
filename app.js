@@ -2,40 +2,40 @@
 class BarCountApp {
     constructor() {
         this.products = [
-            { id: 'pinotnoir', name: 'Pinot noir', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'gamaytouraine', name: 'Gamay Touraine', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'cointreau', name: 'Cointreau', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'kahlua', name: 'Kahlua', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'baileys', name: 'Baileys', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'ricardpastis', name: 'Ricard pastis de Marseille', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'suze', name: 'Suze', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'giffard1885', name: 'Giffard 1885', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'get27', name: 'Get27', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'stgermain', name: 'St germain elderflower liqueur', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'aperol', name: 'Aperol', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'campari', name: 'Campari', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'bombaybleu', name: 'Bombay bleu', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'bombayrouge', name: 'Bombay rouge', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'martinibianco', name: 'Martini bianco', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'martinirosso', name: 'Martini rosso', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'jackdanielsrouge', name: 'Jack daniels rouge', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'jackdanielshoney', name: 'Jack daniels honey', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'jackdanielsvert', name: 'Jack daniels vert', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'sailorjerry', name: 'Sailor Jerry', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'troisriviere', name: 'Trois rivière', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'bacardispiced', name: 'Bacardi spiced', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'fourroses', name: 'Four roses bourbon', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'jameson', name: 'Jameson', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'bacardiblanca', name: 'Bacardi blanca', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'bacardiouro', name: 'Bacardi carta oro', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'greygoose', name: 'Grey goose', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'thoquino', name: 'Thoquino', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'malibu', name: 'Malibu', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'eljimador', name: 'El jimador', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'camparimilan', name: 'Campari milano', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'parati', name: 'Parati', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'lesgalets', name: 'Les galets', count: 0, image: 'images/default-bottle.svg' },
-            { id: 'jusfruit', name: 'jus de pomme orange ananas et cranberry', count: 0, image: 'images/default-bottle.svg' }
+            { id: 'pinotnoir', name: 'Pinot noir', count: 0 },
+            { id: 'gamaytouraine', name: 'Gamay Touraine', count: 0 },
+            { id: 'cointreau', name: 'Cointreau', count: 0 },
+            { id: 'kahlua', name: 'Kahlua', count: 0 },
+            { id: 'baileys', name: 'Baileys', count: 0 },
+            { id: 'ricardpastis', name: 'Ricard pastis de Marseille', count: 0 },
+            { id: 'suze', name: 'Suze', count: 0 },
+            { id: 'giffard1885', name: 'Giffard 1885', count: 0 },
+            { id: 'get27', name: 'Get27', count: 0 },
+            { id: 'stgermain', name: 'St germain elderflower liqueur', count: 0 },
+            { id: 'aperol', name: 'Aperol', count: 0 },
+            { id: 'campari', name: 'Campari', count: 0 },
+            { id: 'bombaybleu', name: 'Bombay bleu', count: 0 },
+            { id: 'bombayrouge', name: 'Bombay rouge', count: 0 },
+            { id: 'martinibianco', name: 'Martini bianco', count: 0 },
+            { id: 'martinirosso', name: 'Martini rosso', count: 0 },
+            { id: 'jackdanielsrouge', name: 'Jack daniels rouge', count: 0 },
+            { id: 'jackdanielshoney', name: 'Jack daniels honey', count: 0 },
+            { id: 'jackdanielsvert', name: 'Jack daniels vert', count: 0 },
+            { id: 'sailorjerry', name: 'Sailor Jerry', count: 0 },
+            { id: 'troisriviere', name: 'Trois rivière', count: 0 },
+            { id: 'bacardispiced', name: 'Bacardi spiced', count: 0 },
+            { id: 'fourroses', name: 'Four roses bourbon', count: 0 },
+            { id: 'jameson', name: 'Jameson', count: 0 },
+            { id: 'bacardiblanca', name: 'Bacardi blanca', count: 0 },
+            { id: 'bacardiouro', name: 'Bacardi carta oro', count: 0 },
+            { id: 'greygoose', name: 'Grey goose', count: 0 },
+            { id: 'thoquino', name: 'Thoquino', count: 0 },
+            { id: 'malibu', name: 'Malibu', count: 0 },
+            { id: 'eljimador', name: 'El jimador', count: 0 },
+            { id: 'camparimilan', name: 'Campari milano', count: 0 },
+            { id: 'parati', name: 'Parati', count: 0 },
+            { id: 'lesgalets', name: 'Les galets', count: 0 },
+            { id: 'jusfruit', name: 'jus de pomme orange ananas et cranberry', count: 0 }
         ];
         
         this.currentScreen = 'inventory';
@@ -421,7 +421,6 @@ class BarCountApp {
             
             item.innerHTML = `
                 <div class="product-info">
-                    <img src="${product.image}" alt="${product.name}" class="product-image">
                     <div class="product-details">
                         <div class="product-name">${product.name}</div>
                         <div class="product-count">${product.count}</div>
@@ -490,10 +489,8 @@ class BarCountApp {
 
     addProduct() {
         const nameInput = document.getElementById('product-name');
-        const imageInput = document.getElementById('product-image');
         
         const name = nameInput.value.trim();
-        const image = imageInput.value.trim() || 'images/default.svg';
         
         if (!name) {
             alert('Veuillez entrer un nom pour l\'alcool');
@@ -513,7 +510,6 @@ class BarCountApp {
         const newProduct = {
             id: newId,
             name: name,
-            image: image,
             count: 0
         };
         
@@ -527,7 +523,6 @@ class BarCountApp {
         
         // Vider le formulaire
         nameInput.value = '';
-        imageInput.value = '';
         
         // Feedback visuel
         const addBtn = document.querySelector('.add-btn');
@@ -568,7 +563,6 @@ class BarCountApp {
             
             item.innerHTML = `
                 <div class="manager-item-info">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='images/default.svg'">
                     <div class="manager-item-name">${product.name}</div>
                 </div>
                 <button type="button" class="delete-btn" data-product="${product.id}">
@@ -731,13 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Préchargement des images avec animation
-    const images = ['images/absolut.svg', 'images/beefeater.svg', 'images/jameson.svg', 'images/eljimador.svg', 'images/bacardi.svg', 'images/jackdaniels.svg', 'images/triplesec.svg', 'images/cremepeche.svg'];
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-        img.onerror = () => console.warn(`Image non trouvée: ${src}`);
-    });
+
 });
 
 // Fonction pour nettoyer le cache (page clear-cache.html)
