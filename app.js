@@ -2,46 +2,85 @@
 class BarCountApp {
     constructor() {
         this.products = [
-            { id: 'pinotnoir', name: 'Pinot noir', count: 0 },
-            { id: 'gamaytouraine', name: 'Gamay Touraine', count: 0 },
-            { id: 'cointreau', name: 'Cointreau', count: 0 },
-            { id: 'kahlua', name: 'Kahlua', count: 0 },
-            { id: 'baileys', name: 'Baileys', count: 0 },
-            { id: 'ricardpastis', name: 'Ricard pastis de Marseille', count: 0 },
-            { id: 'suze', name: 'Suze', count: 0 },
-            { id: 'giffard1885', name: 'Giffard 1885', count: 0 },
-            { id: 'get27', name: 'Get27', count: 0 },
-            { id: 'stgermain', name: 'St germain elderflower liqueur', count: 0 },
-            { id: 'aperol', name: 'Aperol', count: 0 },
-            { id: 'campari', name: 'Campari', count: 0 },
-            { id: 'bombaybleu', name: 'Bombay bleu', count: 0 },
-            { id: 'bombayrouge', name: 'Bombay rouge', count: 0 },
-            { id: 'martinibianco', name: 'Martini bianco', count: 0 },
-            { id: 'martinirosso', name: 'Martini rosso', count: 0 },
-            { id: 'jackdanielsrouge', name: 'Jack daniels rouge', count: 0 },
-            { id: 'jackdanielshoney', name: 'Jack daniels honey', count: 0 },
-            { id: 'jackdanielsvert', name: 'Jack daniels vert', count: 0 },
-            { id: 'sailorjerry', name: 'Sailor Jerry', count: 0 },
-            { id: 'troisriviere', name: 'Trois rivière', count: 0 },
-            { id: 'bacardispiced', name: 'Bacardi spiced', count: 0 },
-            { id: 'fourroses', name: 'Four roses bourbon', count: 0 },
-            { id: 'jameson', name: 'Jameson', count: 0 },
-            { id: 'bacardiblanca', name: 'Bacardi blanca', count: 0 },
-            { id: 'bacardiouro', name: 'Bacardi carta oro', count: 0 },
-            { id: 'greygoose', name: 'Grey goose', count: 0 },
-            { id: 'thoquino', name: 'Thoquino', count: 0 },
-            { id: 'malibu', name: 'Malibu', count: 0 },
-            { id: 'eljimador', name: 'El jimador', count: 0 },
-            { id: 'camparimilan', name: 'Campari milano', count: 0 },
-            { id: 'parati', name: 'Parati', count: 0 },
-            { id: 'lesgalets', name: 'Les galets', count: 0 },
-            { id: 'jusorange', name: 'Jus d\'orange', count: 0 },
-            { id: 'juspomme', name: 'Jus de pomme', count: 0 },
-            { id: 'jusananas', name: 'Jus d\'ananas', count: 0 },
-            { id: 'juscranberry', name: 'Jus de cranberry', count: 0 }
+            // FRIGO
+            { id: 'pepsi', name: 'Pepsi', count: 0, category: 'frigo' },
+            { id: 'pepsimax', name: 'Pepsi max', count: 0, category: 'frigo' },
+            { id: 'sevenup', name: '7up', count: 0, category: 'frigo' },
+            { id: 'perrier', name: 'Perrier', count: 0, category: 'frigo' },
+            { id: 'orangina', name: 'Orangina', count: 0, category: 'frigo' },
+            { id: 'lipton', name: 'Lipton', count: 0, category: 'frigo' },
+            { id: 'schweppesagrume', name: 'Schwepps agrume', count: 0, category: 'frigo' },
+            { id: 'schweppestonic', name: 'Schweppes tonic', count: 0, category: 'frigo' },
+            { id: 'eau', name: 'Eau', count: 0, category: 'frigo' },
+            { id: 'redbull', name: 'Redbull', count: 0, category: 'frigo' },
+            { id: 'desperados', name: 'Desperados', count: 0, category: 'frigo' },
+            { id: 'corona', name: 'Corona', count: 0, category: 'frigo' },
+            { id: 'corona0', name: 'Corona 0', count: 0, category: 'frigo' },
+            { id: 'sambuca', name: 'Sambuca', count: 0, category: 'frigo' },
+            { id: 'demoisellesansgene', name: 'Demoiselle sans gêne', count: 0, category: 'frigo' },
+            { id: 'chardonnay', name: 'Chardonnay', count: 0, category: 'frigo' },
+            { id: 'pujol', name: 'Pujol', count: 0, category: 'frigo' },
+            { id: 'martiniprosecco', name: 'Martini prosecco', count: 0, category: 'frigo' },
+            { id: 'kombucha', name: 'Kombucha ananas, framboise ou gingembre', count: 0, category: 'frigo' },
+            { id: 'jager', name: 'Jager', count: 0, category: 'frigo' },
+            { id: 'bud', name: 'Bud', count: 0, category: 'frigo' },
+            { id: 'fevertree', name: 'Fever tree mediterranean, premium ou grapefruit', count: 0, category: 'frigo' },
+            { id: 'shotcaramel', name: 'Shot caramel', count: 0, category: 'frigo' },
+            { id: 'lilletrose', name: 'Lillet rose', count: 0, category: 'frigo' },
+            
+            // COMPTOIRE
+            { id: 'pinotnoir', name: 'Pinot noir', count: 0, category: 'comptoire' },
+            { id: 'gamaytouraine', name: 'Gamay Touraine', count: 0, category: 'comptoire' },
+            { id: 'cointreau', name: 'Cointreau', count: 0, category: 'comptoire' },
+            { id: 'kahlua', name: 'Kahlua', count: 0, category: 'comptoire' },
+            { id: 'baileys', name: 'Baileys', count: 0, category: 'comptoire' },
+            { id: 'ricardpastis', name: 'Ricard pastis de Marseille', count: 0, category: 'comptoire' },
+            { id: 'suze', name: 'Suze', count: 0, category: 'comptoire' },
+            { id: 'giffard1885', name: 'Giffard 1885', count: 0, category: 'comptoire' },
+            { id: 'get27', name: 'Get27', count: 0, category: 'comptoire' },
+            { id: 'stgermain', name: 'St germain elderflower liqueur', count: 0, category: 'comptoire' },
+            { id: 'aperol', name: 'Aperol', count: 0, category: 'comptoire' },
+            { id: 'campari', name: 'Campari', count: 0, category: 'comptoire' },
+            { id: 'bombaybleu', name: 'Bombay bleu', count: 0, category: 'comptoire' },
+            { id: 'bombayrouge', name: 'Bombay rouge', count: 0, category: 'comptoire' },
+            { id: 'martinibianco', name: 'Martini bianco', count: 0, category: 'comptoire' },
+            { id: 'martinirosso', name: 'Martini rosso', count: 0, category: 'comptoire' },
+            { id: 'jackdanielsrouge', name: 'Jack daniels rouge', count: 0, category: 'comptoire' },
+            { id: 'jackdanielshoney', name: 'Jack daniels honey', count: 0, category: 'comptoire' },
+            { id: 'jackdanielsvert', name: 'Jack daniels vert', count: 0, category: 'comptoire' },
+            { id: 'sailorjerry', name: 'Sailor Jerry', count: 0, category: 'comptoire' },
+            { id: 'troisriviere', name: 'Trois rivière', count: 0, category: 'comptoire' },
+            { id: 'bacardispiced', name: 'Bacardi spiced', count: 0, category: 'comptoire' },
+            { id: 'fourroses', name: 'Four roses bourbon', count: 0, category: 'comptoire' },
+            { id: 'jamesoncomptoire', name: 'Jameson', count: 0, category: 'comptoire' },
+            { id: 'bacardiblanca', name: 'Bacardi blanca', count: 0, category: 'comptoire' },
+            { id: 'bacardiouro', name: 'Bacardi carta oro', count: 0, category: 'comptoire' },
+            { id: 'greygoose', name: 'Grey goose', count: 0, category: 'comptoire' },
+            { id: 'thoquino', name: 'Thoquino', count: 0, category: 'comptoire' },
+            { id: 'malibu', name: 'Malibu', count: 0, category: 'comptoire' },
+            { id: 'eljimadorcomptoire', name: 'El jimador', count: 0, category: 'comptoire' },
+            { id: 'camparimilan', name: 'Campari milano', count: 0, category: 'comptoire' },
+            { id: 'parati', name: 'Parati', count: 0, category: 'comptoire' },
+            { id: 'lesgalets', name: 'Les galets', count: 0, category: 'comptoire' },
+            { id: 'jusorange', name: 'Jus d\'orange', count: 0, category: 'comptoire' },
+            { id: 'juspomme', name: 'Jus de pomme', count: 0, category: 'comptoire' },
+            { id: 'jusananas', name: 'Jus d\'ananas', count: 0, category: 'comptoire' },
+            { id: 'juscranberry', name: 'Jus de cranberry', count: 0, category: 'comptoire' },
+            
+            // CAISSE
+            { id: 'absolut', name: 'Absolut', count: 0, category: 'caisse' },
+            { id: 'beefeater', name: 'Beefeater', count: 0, category: 'caisse' },
+            { id: 'jameson', name: 'Jameson', count: 0, category: 'caisse' },
+            { id: 'eljimadortequila', name: 'El jimador tequila', count: 0, category: 'caisse' },
+            { id: 'bacardicartablanca', name: 'Bacardi carta blanca', count: 0, category: 'caisse' },
+            { id: 'jackdaniel', name: 'Jack Daniel', count: 0, category: 'caisse' },
+            { id: 'bacardioro', name: 'Bacardi oro', count: 0, category: 'caisse' },
+            { id: 'triplesec', name: 'Triple sec', count: 0, category: 'caisse' },
+            { id: 'cremepeche', name: 'Crème de pêche', count: 0, category: 'caisse' }
         ];
         
         this.currentScreen = 'inventory';
+        this.currentCategory = 'all';
         this.todoList = [];
         this.animationQueue = [];
         
@@ -153,6 +192,12 @@ class BarCountApp {
             e.stopPropagation();
             this.addProduct();
             return false;
+        });
+
+        // Filtre de catégorie
+        document.getElementById('category-select').addEventListener('change', (e) => {
+            this.currentCategory = e.target.value;
+            this.renderInventory();
         });
         
         // Délégation d'événements pour tous les boutons
@@ -416,7 +461,12 @@ class BarCountApp {
         
         container.innerHTML = '';
         
-        this.products.forEach((product, index) => {
+        // Filtrer les produits selon la catégorie sélectionnée
+        const filteredProducts = this.currentCategory === 'all' 
+            ? this.products 
+            : this.products.filter(product => product.category === this.currentCategory);
+        
+        filteredProducts.forEach((product, index) => {
             const item = document.createElement('div');
             item.className = `product-item ${product.count > 0 ? 'needs-restock' : ''}`;
             item.setAttribute('data-product-id', product.id);
@@ -511,7 +561,8 @@ class BarCountApp {
         const newProduct = {
             id: newId,
             name: name,
-            count: 0
+            count: 0,
+            category: 'comptoire' // Catégorie par défaut
         };
         
         this.products.push(newProduct);
@@ -599,7 +650,8 @@ class BarCountApp {
                 this.products = loadedProducts.map(product => ({
                     id: product.id,
                     name: product.name,
-                    count: product.count || 0
+                    count: product.count || 0,
+                    category: product.category || 'comptoire' // Catégorie par défaut pour les anciens produits
                 }));
             }
             

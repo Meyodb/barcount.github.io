@@ -38,6 +38,15 @@
         <main>
             <!-- Écran Inventaire -->
             <div id="inventory" class="screen active">
+                <div class="category-filter">
+                    <label for="category-select">Catégorie :</label>
+                    <select id="category-select">
+                        <option value="all">Toutes les catégories</option>
+                        <option value="frigo">🧊 Frigo</option>
+                        <option value="comptoire">🍸 Comptoire</option>
+                        <option value="caisse">📦 Caisse</option>
+                    </select>
+                </div>
                 <div class="product-list" id="inventory-list">
                     <!-- Les produits seront générés dynamiquement -->
                 </div>
