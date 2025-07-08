@@ -593,7 +593,13 @@ class BarCountApp {
             const savedTodo = localStorage.getItem('barcount-todo');
             
             if (savedData) {
-                this.products = JSON.parse(savedData);
+                const loadedProducts = JSON.parse(savedData);
+                // Nettoyer les anciennes données qui pourraient contenir des images
+                this.products = loadedProducts.map(product => ({
+                    id: product.id,
+                    name: product.name,
+                    count: product.count || 0
+                }));
             }
             
             if (savedTodo) {
